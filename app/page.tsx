@@ -226,7 +226,7 @@ export default function ContentCreatorAiApp() {
   const [image, setImage] = useState<string | null>(null);
   const [size, setSize] = useState<AspectRatio>("16:9");
   const [loading, setLoading] = useState(false);
-  const [aiOutput, setAiOutput] = useState<Record<PlatformKey, PlatformCopy> | null>(null);
+  const [aiOutput, setAiOutput] = useState<any>({});
   const [copiedField, setCopiedField] = useState("");
   const [activePlatform, setActivePlatform] = useState<PlatformKey>("facebook");
 
