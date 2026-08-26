@@ -601,11 +601,11 @@ export default function ContentCreatorAiApp() {
                     </span>
                     <div className="flex items-start gap-3">
                       <div className="w-full text-sm font-semibold text-white leading-relaxed">
-                        {aiOutput[activePlatform].title}
+                      {aiOutput && aiOutput[activePlatform] ? aiOutput[activePlatform].title : ""}
                       </div>
                       <button
                         type="button"
-                        onClick={() => handleCopy(aiOutput[activePlatform].title, "title-copy")}
+                        onClick={() => handleCopy(aiOutput[activePlatform]?.title, "title-copy")}
                         className="px-3 py-1.5 bg-[#10b981] text-[#020c1b] text-xs font-black rounded-lg shrink-0"
                       >
                         {copiedField === "title-copy" ? "✓ Copied" : "Copy"}
@@ -617,23 +617,23 @@ export default function ContentCreatorAiApp() {
                       📝 বক্স ২: ডেসক্রিপশন এবং ৪টি হ্যাশট্যাগ
                     </span>
                     <p className="text-xs text-slate-300 whitespace-pre-wrap leading-relaxed border-b border-slate-800 pb-3">
-                      {aiOutput[activePlatform].desc}
+                    {aiOutput && aiOutput[activePlatform] ? aiOutput[activePlatform].desc : ""}
                     </p>
                     <p className="text-[#10b981] font-mono text-xs font-bold">
-                      {aiOutput[activePlatform].tags}
+                    {aiOutput && aiOutput[activePlatform] ? aiOutput[activePlatform].tags : ""}
                     </p>
                     <div className="rounded-lg border border-slate-800 bg-[#0a192f] p-3 space-y-2">
                       <span className="text-[11px] font-bold text-amber-400 tracking-wide block">
                         SEO Tags (ট্যাগসমূহ)
                       </span>
                       <p className="text-xs text-slate-200 leading-relaxed">
-                        {aiOutput[activePlatform].seo_keywords}
+                      {aiOutput && aiOutput[activePlatform] ? aiOutput[activePlatform].seo_keywords : ""}
                       </p>
                       <div className="flex justify-end">
                         <button
                           type="button"
                           onClick={() =>
-                            handleCopy(aiOutput[activePlatform].seo_keywords, "seo-copy")
+                            handleCopy(aiOutput[activePlatform]?.seo_keywords, "seo-copy")
                           }
                           className="px-3 py-1.5 bg-amber-500 text-[#020c1b] text-xs font-black rounded-lg"
                         >
@@ -646,7 +646,7 @@ export default function ContentCreatorAiApp() {
                         type="button"
                         onClick={() =>
                           handleCopy(
-                            `${aiOutput[activePlatform].desc}\n\n${aiOutput[activePlatform].tags}\n\n${aiOutput[activePlatform].seo_keywords}`,
+                            `${aiOutput[activePlatform]?.desc}\n\n${aiOutput[activePlatform]?.tags}\n\n${aiOutput[activePlatform]?.seo_keywords}`,
                             "desc-copy"
                           )
                         }
